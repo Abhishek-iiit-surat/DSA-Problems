@@ -1,0 +1,28 @@
+Approach: Shortest Path in Weighted Undirected Graph using Dijkstra’s Algorithm
+Graph Representation (Adjacency List)
+
+Create an adjacency list (adj) using an unordered map where each node stores a list of {neighbor, weight} pairs.
+Data Structures for Dijkstra’s Algorithm
+
+Priority Queue (pq): Stores {cost, node} pairs in a min-heap (so the smallest cost is processed first).
+Distance Array (min_wt): Stores the shortest known distance from node 1 to every other node. Initialize all distances to INT_MAX, except for min_wt[1] = 0.
+Parent Array (parent): Stores the parent of each node for path reconstruction.
+Dijkstra’s Algorithm Execution
+
+Start from node 1, push {0, 1} into pq.
+While the queue is not empty:
+Extract the node with the smallest cost.
+Traverse all its neighbors and update distances if a shorter path is found.
+Store the parent of the updated node for path reconstruction.
+Path Reconstruction
+
+If parent[n] == -1, return {-1} (No path exists).
+Otherwise, trace back from n to 1 using the parent array.
+Append the total cost (min_wt[n]) at the end of the path.
+Reverse the path to get it in the correct order.
+Return the Final Answer
+
+The result includes the nodes in the shortest path followed by the total cost.
+Time Complexity:
+O((N + M) log N) due to the priority queue operations in Dijkstra’s algorithm.
+This approach ensures the shortest path from node 1 to node n is found efficiently. 🚀

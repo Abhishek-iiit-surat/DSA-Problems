@@ -1,0 +1,25 @@
+Approach 1: Using Priority Queue (Min-Heap)
+Pop a node from the queue.
+For each neighbor of the node, calculate the distance.
+If this new distance is shorter than the previously stored distance, update the result array.
+Push the neighbor node into the queue.
+Repeat until the queue is empty.
+Explanation:
+
+This approach starts traversing nodes with the minimum cost first.
+Each node can be accessed via multiple routes, but the approach ensures we store the shortest one.
+It efficiently updates the shortest path to all vertices by always expanding the least costly path first.
+Approach 2: Using Set (Optimized Approach)
+Use a set instead of a priority queue to store nodes along with their cost.
+Pop the node with the smallest cost from the set.
+For each neighbor, calculate the new cost.
+If the new cost is shorter than the previously stored distance:
+Remove the older entry from the set (if it exists).
+Update the result array with the new cost.
+Insert the updated node into the set.
+Repeat until the set is empty.
+Explanation:
+
+This approach reduces redundant checks by removing outdated entries before processing.
+If a node is already in the set with a higher cost, it gets replaced with a better cost before further processing.
+This improves efficiency compared to a priority queue where older, higher-cost entries still get processed.
